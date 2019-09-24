@@ -10,5 +10,7 @@ go get -u github.com/rtrigoso/tmt
 Usage: tmt [options...]
 
 Options:
-	-m	Number of minutes to count. Default is 25 minutes.
+	-m	Work length in minutes. Defaults to 25 minutes.
+	-r	Rest length in minutes. Defaults to 5 minutes.
+	-n	Number of sets to run for. Defaults to 1.
 ```
