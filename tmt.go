@@ -35,10 +35,10 @@ func main() {
 		for _, label := range p {
 			switch label {
 			case "WORK":
-				startProgress(*m, label)
+				startProgress(*m, "[green]"+label)
 				break
 			case "REST":
-				startProgress(*r, label)
+				startProgress(*r, "[red]"+label)
 				break
 			default:
 				os.Exit(1)
@@ -66,7 +66,7 @@ func main() {
 
 func startProgress(t int, l string) {
 	t *= 60
-	bar := progressbar.NewOptions(t, progressbar.OptionSetDescription(l))
+	bar := progressbar.NewOptions(t, progressbar.OptionSetDescription(l), progressbar.OptionEnableColorCodes(true))
 	bar.RenderBlank()
 
 	var c int
