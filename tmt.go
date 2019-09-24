@@ -14,7 +14,7 @@ var (
 	c = 0
 )
 
-var usage = ` Usage: tmt [options...]
+var usage = `Usage: tmt [options...]
 
 Options:
 	-m	Number of minutes to count. Default is 25 minutes.
