@@ -4,7 +4,7 @@
 ```
 go get -u github.com/rtrigoso/tmt
 ```
-
+## Usage:
 ```
 Usage: tmt [options...]
 
