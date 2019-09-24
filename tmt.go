@@ -39,4 +39,12 @@ func main() {
 		c++
 	}
 
+	bar.Clear()
+
+	message := "minutes"
+	if *m == 1 {
+		message = "minute"
+	}
+
+	fmt.Printf("%d %s timer finished\n", *m, message)
 }

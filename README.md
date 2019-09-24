@@ -1,4 +1,5 @@
-# TMT: a Simple Pomodoro Timer for the Command Line Written in GO
+# TMT
+### a simple pomodoro timer for the command line written in GO
 
 ## Installation:
 ```
