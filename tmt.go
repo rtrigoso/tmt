@@ -15,7 +15,7 @@ import (
 var (
 	m   = flag.Int("m", 25, "")
 	r   = flag.Int("r", 5, "")
-	n   = flag.Int("n", 1, "")
+	n   = flag.Int("n", 5, "")
 	x   = flag.String("x", "", "")
 	c   = 0
 	p   = [2]string{"WORK", "REST"}
@@ -51,22 +51,15 @@ func main() {
 				startProgress(*m, "[green]"+label)
 				break
 			case "REST":
+				if *x != "" {
+					runBreakCommand()
+				}
 				startProgress(*r, "[red]"+label)
 				break
 			default:
 				os.Exit(1)
 			}
 		}
-	}
-
-	if *x != "" {
-		cmd := exec.Cmd{}
-		cmd, err = cmdBuild(*x)
-
-		var b []byte
-		b, err = cmd.CombinedOutput()
-		fmt.Printf(string(b))
-		os.Exit(0)
 	}
 
 	roundsMessage := "rounds"
@@ -101,6 +94,15 @@ func startProgress(t int, l string) {
 		bar.Add(1)
 		c++
 	}
+}
+
+func runBreakCommand() {
+	cmd := exec.Cmd{}
+	cmd, err = cmdBuild(*x)
+
+	var b []byte
+	b, err = cmd.CombinedOutput()
+	fmt.Printf(string(b))
 }
 
 func cmdBuild(s string) (exec.Cmd, error) {
